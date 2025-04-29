@@ -21,7 +21,7 @@ push-graphviz: login
     podman push {{REPOSITORY}}/graphviz:latest {{REPOSITORY}}/graphviz:latest
 
 
-HUGO_VERSION := '0.145.0'
+HUGO_VERSION := '0.147.0'
 # Builds hugo image
 build-hugo:
     podman build --no-cache -t {{REPOSITORY}}/hugo:{{HUGO_VERSION}} --build-arg HUGO_VERSION={{HUGO_VERSION}} -f Dockerfile-hugo

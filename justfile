@@ -28,7 +28,7 @@ build-hugo:
     podman tag {{REPOSITORY}}/hugo:{{HUGO_VERSION}} {{REPOSITORY}}/hugo:latest
 
 # Pushes current hugo image (requires build!)
-push-hugo:
+push-hugo: login
     podman push {{REPOSITORY}}/hugo:{{HUGO_VERSION}} {{REPOSITORY}}/hugo:{{HUGO_VERSION}}
     podman push {{REPOSITORY}}/hugo:latest {{REPOSITORY}}/hugo:latest
 

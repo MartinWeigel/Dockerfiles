@@ -46,4 +46,5 @@ push-texlive: login
 
 # Builds ytdlp image
 build-ytdlp:
-    podman build --no-cache -t localhost/ytdlp:latest -f Dockerfile-ytdlp
+    podman build --no-cache -t localhost/ytdlp:{{TAG}} -f Dockerfile-ytdlp
+    podman tag localhost/ytdlp:{{TAG}} localhost/ytdlp:latest

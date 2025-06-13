@@ -1,4 +1,4 @@
-FROM docker.io/library/alpine:latest
+FROM docker.io/library/alpine:3.22.0
 ARG HUGO_VERSION
 
 # Install necessary packages

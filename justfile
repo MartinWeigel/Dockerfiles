@@ -21,7 +21,7 @@ push-charts: login
     podman push {{REPOSITORY}}/charts:latest
 
 
-HUGO_VERSION := '0.147.0'
+HUGO_VERSION := '0.147.7'
 # Builds hugo image
 build-hugo:
     podman build --no-cache -t {{REPOSITORY}}/hugo:{{HUGO_VERSION}} --build-arg HUGO_VERSION={{HUGO_VERSION}} -f Dockerfile-hugo

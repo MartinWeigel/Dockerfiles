@@ -1,13 +1,12 @@
-FROM docker.io/library/alpine:latest
+FROM docker.io/library/alpine:3.22.0
 
 # Install necessary packages
 RUN apk update \
     && apk add --no-cache graphviz \
+    && apk add --no-cache plantuml \
     && rm -rf /var/cache/apk/*
 
 # Create and use a non-root user account
 RUN addgroup -g 1000 appgroup \
     && adduser -G appgroup -u 1000 -D appuser
 USER appuser
-
-ENTRYPOINT ["dot"]

@@ -10,15 +10,15 @@ login:
     podman login -u martinweigel docker.io
 
 
-# Builds graphviz image
-build-graphviz:
-    podman build --no-cache -t {{REPOSITORY}}/graphviz:{{TAG}} -f Dockerfile-graphviz
-    podman tag {{REPOSITORY}}/graphviz:{{TAG}} {{REPOSITORY}}/graphviz:latest
+# Builds charts image
+build-charts:
+    podman build --no-cache -t {{REPOSITORY}}/charts:{{TAG}} -f Dockerfile-charts
+    podman tag {{REPOSITORY}}/charts:{{TAG}} {{REPOSITORY}}/charts:latest
 
-# Pushes current graphviz image (requires build!)
-push-graphviz: login
-    podman push {{REPOSITORY}}/graphviz:{{TAG}} {{REPOSITORY}}/graphviz:{{TAG}}
-    podman push {{REPOSITORY}}/graphviz:latest {{REPOSITORY}}/graphviz:latest
+# Pushes current charts image (requires build!)
+push-charts: login
+    podman push {{REPOSITORY}}/charts:{{TAG}}
+    podman push {{REPOSITORY}}/charts:latest
 
 
 HUGO_VERSION := '0.147.0'
@@ -31,17 +31,6 @@ build-hugo:
 push-hugo: login
     podman push {{REPOSITORY}}/hugo:{{HUGO_VERSION}} {{REPOSITORY}}/hugo:{{HUGO_VERSION}}
     podman push {{REPOSITORY}}/hugo:latest {{REPOSITORY}}/hugo:latest
-
-
-# Builds plantuml image
-build-plantuml:
-    podman build --no-cache -t {{REPOSITORY}}/plantuml:{{TAG}} -f Dockerfile-plantuml
-    podman tag {{REPOSITORY}}/plantuml:{{TAG}} {{REPOSITORY}}/plantuml:latest
-
-# Pushes current plantuml image (requires build!)
-push-plantuml: login
-    podman push {{REPOSITORY}}/plantuml:{{TAG}} {{REPOSITORY}}/plantuml:{{TAG}}
-    podman push {{REPOSITORY}}/plantuml:latest {{REPOSITORY}}/plantuml:latest
 
 
 # Builds texlive image

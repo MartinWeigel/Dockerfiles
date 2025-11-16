@@ -44,17 +44,6 @@ push-texlive: login
     podman push {{REPOSITORY}}/texlive:latest {{REPOSITORY}}/texlive:latest
 
 
-# Builds typst image
-build-typst:
-    podman build --no-cache -t {{REPOSITORY}}/typst:{{TAG}} -f Dockerfile-typst
-    podman tag {{REPOSITORY}}/typst:{{TAG}} {{REPOSITORY}}/typst:latest
-
-# Pushes current typst image (requires build!)
-push-typst: login
-    podman push {{REPOSITORY}}/typst:{{TAG}} {{REPOSITORY}}/typst:{{TAG}}
-    podman push {{REPOSITORY}}/typst:latest {{REPOSITORY}}/typst:latest
-
-
 # Builds ytdlp image
 build-ytdlp:
     podman build --no-cache -t localhost/ytdlp:{{TAG}} -f Dockerfile-ytdlp

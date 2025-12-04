@@ -1,4 +1,4 @@
-FROM docker.io/library/alpine:latest
+FROM docker.io/library/alpine:3.23.0
 
 # Install necessary packages
 RUN apk update \

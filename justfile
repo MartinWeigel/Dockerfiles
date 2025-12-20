@@ -1,6 +1,5 @@
 REPOSITORY := 'docker.io/martinweigel'
-TAG := `date +'%Y-%m'`
-HUGO_VERSION := '0.152.0'
+TAG := `date +'%Y-%m-%d'`
 
 [private]
 @default:

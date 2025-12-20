@@ -24,12 +24,12 @@ push-charts: login
 
 # Builds hugo image
 build-hugo:
-    podman build --no-cache -t {{REPOSITORY}}/hugo:{{HUGO_VERSION}} --build-arg HUGO_VERSION={{HUGO_VERSION}} -f Dockerfile-hugo
-    podman tag {{REPOSITORY}}/hugo:{{HUGO_VERSION}} {{REPOSITORY}}/hugo:latest
+    podman build --no-cache -t {{REPOSITORY}}/hugo:{{TAG}} -f Dockerfile-hugo
+    podman tag {{REPOSITORY}}/hugo:{{TAG}} {{REPOSITORY}}/hugo:latest
 
 # Pushes current hugo image (requires build!)
 push-hugo: login
-    podman push {{REPOSITORY}}/hugo:{{HUGO_VERSION}} {{REPOSITORY}}/hugo:{{HUGO_VERSION}}
+    podman push {{REPOSITORY}}/hugo:{{TAG}} {{REPOSITORY}}/hugo:{{TAG}}
     podman push {{REPOSITORY}}/hugo:latest {{REPOSITORY}}/hugo:latest
 
 

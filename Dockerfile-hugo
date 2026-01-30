@@ -1,5 +1,5 @@
 FROM docker.io/library/alpine:3.23.2
-ARG HUGO_VERSION="0.154.0"
+ARG HUGO_VERSION="0.155.0"
 
 # Install necessary packages
 RUN apk update \
